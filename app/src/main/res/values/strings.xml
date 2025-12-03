@@ -11,4 +11,7 @@
     <string name="incorrect">❌ Faux ! La bonne réponse est : %d</string>
     <string name="empty_answer">⚠️ Veuillez entrer une réponse</string>
     <string name="choose_operation">Choisissez d\'abord une opération (+, -, ×)</string>
+    <string name="score_label">Score : %d / %d</string>
+    <string name="percentage_label">Taux de réussite : %d%%</string>
+    <string name="btn_reset_score">Réinitialiser le score</string>
 </resources>
