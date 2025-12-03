@@ -3,6 +3,12 @@
     <string name="btn_plus">+</string>
     <string name="btn_minus">-</string>
     <string name="btn_multiply">×</string>
-    <string name="btn_generate">Générer</string>
+    <string name="btn_generate">Générer un nouvel exercice</string>
+    <string name="btn_check">Vérifier</string>
+    <string name="hint_answer">Votre réponse</string>
     <string name="label_result">Résultat :</string>
+    <string name="correct">✅ Bravo ! C\'est correct !</string>
+    <string name="incorrect">❌ Faux ! La bonne réponse est : %d</string>
+    <string name="empty_answer">⚠️ Veuillez entrer une réponse</string>
+    <string name="choose_operation">Choisissez d\'abord une opération (+, -, ×)</string>
 </resources>

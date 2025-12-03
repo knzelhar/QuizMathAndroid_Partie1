@@ -4,8 +4,6 @@
     android:layout_height="match_parent"
     android:padding="@dimen/margin"
     android:background="@color/background">
-
-    <!-- Premier nombre -->
     <TextView
         android:id="@+id/txtNum1"
         android:layout_width="wrap_content"
@@ -15,8 +13,16 @@
         android:textColor="@color/textDark"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/margin"/>
-
-    <!-- Deuxième nombre -->
+    <TextView
+        android:id="@+id/txtOperation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:textSize="@dimen/text_large"
+        android:textColor="@color/accent"
+        android:layout_below="@id/txtNum1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"/>
     <TextView
         android:id="@+id/txtNum2"
         android:layout_width="wrap_content"
@@ -24,54 +30,73 @@
         android:text="0"
         android:textSize="@dimen/text_large"
         android:textColor="@color/textDark"
-        android:layout_below="@id/txtNum1"
+        android:layout_below="@id/txtOperation"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/margin"/>
-
-    <!-- Boutons d'opérations -->
+        android:layout_marginTop="8dp"/>
+    <View
+        android:id="@+id/line"
+        android:layout_width="100dp"
+        android:layout_height="2dp"
+        android:background="@color/textDark"
+        android:layout_below="@id/txtNum2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"/>
     <LinearLayout
         android:id="@+id/layoutButtons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@id/txtNum2"
+        android:layout_below="@id/line"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp">
-
         <Button
             android:id="@+id/btnPlus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/btn_plus"
             android:layout_marginRight="@dimen/button_margin"/>
-
         <Button
             android:id="@+id/btnMinus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/btn_minus"
             android:layout_marginRight="@dimen/button_margin"/>
-
         <Button
             android:id="@+id/btnMultiply"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/btn_multiply"/>
     </LinearLayout>
+    <EditText
+        android:id="@+id/editAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_answer"
+        android:inputType="numberSigned"
+        android:textSize="@dimen/text_medium"
+        android:layout_below="@id/layoutButtons"
+        android:layout_marginTop="24dp"
+        android:gravity="center"/>
 
-    <!-- Résultat -->
+    <Button
+        android:id="@+id/btnCheck"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_check"
+        android:layout_below="@id/editAnswer"
+        android:layout_marginTop="@dimen/margin"/>
+
     <TextView
         android:id="@+id/txtResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/label_result"
+        android:text=""
         android:textSize="@dimen/text_medium"
-        android:textColor="@color/accent"
-        android:layout_below="@id/layoutButtons"
+        android:textColor="@color/textDark"
+        android:layout_below="@id/btnCheck"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"/>
-
-    <!-- Bouton Générer -->
+        android:layout_marginTop="16dp"/>
+    
     <Button
         android:id="@+id/btnGenerate"
         android:layout_width="match_parent"
