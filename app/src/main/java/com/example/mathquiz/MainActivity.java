@@ -4,30 +4,36 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText num1, num2;
+    TextView txtNum1, txtNum2, txtResult;
     Button btnPlus, btnMinus, btnMultiply, btnGenerate;
-    TextView txtResult;
+    Random random;
+    int num1, num2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        num1 = findViewById(R.id.num1);
-        num2 = findViewById(R.id.num2);
+        // Initialisation des vues
+        txtNum1 = findViewById(R.id.txtNum1);
+        txtNum2 = findViewById(R.id.txtNum2);
+        txtResult = findViewById(R.id.txtResult);
         btnPlus = findViewById(R.id.btnPlus);
         btnMinus = findViewById(R.id.btnMinus);
         btnMultiply = findViewById(R.id.btnMultiply);
         btnGenerate = findViewById(R.id.btnGenerate);
-        txtResult = findViewById(R.id.txtResult);
 
-        // Bouton plus
+        random = new Random();
+
+        // Générer des nombres au démarrage
+        generateNumbers();
+
+        // Événements des boutons
         btnPlus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Bouton moins
         btnMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,71 +48,47 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Bouton multiplication
         btnMultiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                calculate("*");
+                calculate("×");
             }
         });
 
-        // Bouton générer un calcul aléatoire
         btnGenerate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                generateRandomOperation();
+                generateNumbers();
+                txtResult.setText("Résultat :");
             }
         });
     }
 
-    // Fonction de calcul
-    private void calculate(String operation) {
-        try {
-            int a = Integer.parseInt(num1.getText().toString());
-            int b = Integer.parseInt(num2.getText().toString());
-            int result = 0;
+    // Générer deux nombres aléatoires entre 111 et 999
+    private void generateNumbers() {
+        num1 = random.nextInt(889) + 111; // 111 à 999
+        num2 = random.nextInt(889) + 111;
 
-            switch (operation) {
-                case "+":
-                    result = a + b;
-                    break;
-
-                case "-":
-                    result = a - b;
-                    break;
-
-                case "*":
-                    result = a * b;
-                    break;
-            }
-
-            txtResult.setText("Résultat : " + result);
-
-        } catch (Exception e) {
-            txtResult.setText("Veuillez entrer des nombres valides !");
-        }
+        txtNum1.setText(String.valueOf(num1));
+        txtNum2.setText(String.valueOf(num2));
     }
 
-    // Fonction pour générer un calcul aléatoire
-    private void generateRandomOperation() {
-        int a = (int) (Math.random() * 10);
-        int b = (int) (Math.random() * 10);
-        int op = (int) (Math.random() * 3); // 0:+, 1:-, 2:*
-
-        String symbol = "";
+    // Calculer selon l'opération choisie
+    private void calculate(String operation) {
         int result = 0;
 
-        if (op == 0) {
-            symbol = "+";
-            result = a + b;
-        } else if (op == 1) {
-            symbol = "-";
-            result = a - b;
-        } else {
-            symbol = "*";
-            result = a * b;
+        switch (operation) {
+            case "+":
+                result = num1 + num2;
+                break;
+            case "-":
+                result = num1 - num2;
+                break;
+            case "×":
+                result = num1 * num2;
+                break;
         }
 
-        txtResult.setText(a + " " + symbol + " " + b + " = " + result);
+        txtResult.setText("Résultat : " + result);
     }
 }

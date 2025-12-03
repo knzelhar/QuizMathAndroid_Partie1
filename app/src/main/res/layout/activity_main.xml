@@ -5,74 +5,79 @@
     android:padding="@dimen/margin"
     android:background="@color/background">
 
+    <!-- Premier nombre -->
+    <TextView
+        android:id="@+id/txtNum1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="@dimen/text_large"
+        android:textColor="@color/textDark"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin"/>
 
+    <!-- Deuxième nombre -->
+    <TextView
+        android:id="@+id/txtNum2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="@dimen/text_large"
+        android:textColor="@color/textDark"
+        android:layout_below="@id/txtNum1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin"/>
+
+    <!-- Boutons d'opérations -->
+    <LinearLayout
+        android:id="@+id/layoutButtons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/txtNum2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp">
+
+        <Button
+            android:id="@+id/btnPlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_plus"
+            android:layout_marginRight="@dimen/button_margin"/>
+
+        <Button
+            android:id="@+id/btnMinus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_minus"
+            android:layout_marginRight="@dimen/button_margin"/>
+
+        <Button
+            android:id="@+id/btnMultiply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_multiply"/>
+    </LinearLayout>
+
+    <!-- Résultat -->
     <TextView
         android:id="@+id/txtResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/label_result"
         android:textSize="@dimen/text_medium"
-        android:textColor="@color/textDark"
-        android:layout_alignParentTop="true" />
+        android:textColor="@color/accent"
+        android:layout_below="@id/layoutButtons"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"/>
 
-
-    <EditText
-        android:id="@+id/num1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nombre 1"
-        android:inputType="number"
-        android:layout_below="@id/txtResult"
-        android:layout_marginTop="@dimen/margin"
-        android:textSize="@dimen/text_medium"/>
-
-
-    <EditText
-        android:id="@+id/num2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nombre 2"
-        android:inputType="number"
-        android:layout_below="@id/num1"
-        android:layout_marginTop="@dimen/margin"
-        android:textSize="@dimen/text_medium"/>
-
-
-    <Button
-        android:id="@+id/btnPlus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_plus"
-        android:layout_below="@id/num2"
-        android:layout_marginTop="@dimen/button_margin"/>
-
-
-    <Button
-        android:id="@+id/btnMinus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_minus"
-        android:layout_toRightOf="@id/btnPlus"
-        android:layout_alignTop="@id/btnPlus"
-        android:layout_marginLeft="@dimen/button_margin"/>
-
-
-    <Button
-        android:id="@+id/btnMultiply"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_multiply"
-        android:layout_toRightOf="@id/btnMinus"
-        android:layout_alignTop="@id/btnMinus"
-        android:layout_marginLeft="@dimen/button_margin"/>
-
-
+    <!-- Bouton Générer -->
     <Button
         android:id="@+id/btnGenerate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/btn_generate"
-        android:layout_below="@id/btnPlus"
+        android:layout_below="@id/txtResult"
         android:layout_marginTop="24dp"/>
 
 </RelativeLayout>
